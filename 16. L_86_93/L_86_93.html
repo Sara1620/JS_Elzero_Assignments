@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style> /*For Assignment6*/
+      *{
+        box-sizing: border-box;
+      }
+
+      #assignment6-form{
+        width: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #assignment6-form .input:not(input[type="submit"]){
+        width: 250px;
+        background-color: #efefef;
+        border: 1px solid #ddd;
+        padding: 12px 0 12px 12px;
+      }
+
+      #assignment6-form select *{
+        font-size: 15px;
+      }
+
+      input[type="submit"]{
+        width: 250px;
+        background-color: #00978A;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 0;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .results{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .results *{
+        width: calc((100% - 40px) / 3);
+        background-color: #FC5425;
+        color: white;
+        border-radius: 5px;
+        padding: 10px 0;
+        text-align: center;  
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--------------Assignment1------------------------------>
+    <div id="elzero" class="element" name="js">JavaScript</div>
+    <hr>
+
+    <!--------------Assignment2------------------------------>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <div>
+      <img decoding="async" src="#" alt="" />
+    </div>
+    <hr>  
+
+    <!--------------Assignment3------------------------------>
+    <form action="">
+        <input type="number" name="dollar" placeholder="USD Dollar" />
+        <div class="result">{<span>0</span>} USD Dollar = {<span>0</span>} Egyptian Pound</div>
+      </form>
+      <hr>  
+
+    <!--------------Assignment4------------------------------>    
+    <div class="one" title="two">Two</div>
+    <div class="two" title="one">One</div>
+    <hr>  
+
+    <!--------------Assignment5------------------------------>
+    <img decoding="async" src="#" alt="One" />
+    <img decoding="async" src="#" />
+    <img decoding="async" src="#" alt="Three" />
+    <img decoding="async" src="#" />
+    <img decoding="async" src="#" />
+    <hr>  
+
+    <!--------------Assignment6------------------------------>
+    <form id="assignment6-form" action="">
+        <input type="number" name="elements" class="input" placeholder="Number Of Elements" />
+        <input type="text" name="texts" class="input" placeholder="Elements Text" />
+        <select name="type" class="input">
+          <option value="Div">Div</option>
+          <option value="Section">Section</option>
+        </select>
+        <input type="submit" name="create" value="Create" />
+        <div class="results"></div>
+      </form>
+    <script src="L_86_93.js"></script>
+  </body>
+</html>
