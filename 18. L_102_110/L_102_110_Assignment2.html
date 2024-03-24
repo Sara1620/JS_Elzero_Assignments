@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+
+        <div class="wait" style="position: absolute; top:10px; color: blue;">Wait...</div>
+        
+        <script>
+        
+            window.setTimeout(popUpWindow,5000);
+            
+            function popUpWindow(){
+                //remove "wait"
+                document.querySelector(".wait").remove();
+
+                let div=document.createElement("div");
+                let h3=document.createElement("h3");
+                let h3Value=document.createTextNode("Welcome");
+
+                h3.appendChild(h3Value);
+                div.appendChild(h3);
+
+                let p=document.createElement("p");
+                let pValue=document.createTextNode("Welcome To Elzero Web School");
+
+                p.appendChild(pValue);
+                div.appendChild(p);
+
+                let span=document.createElement("span");
+                let spanValue=document.createTextNode("X");
+
+                span.appendChild(spanValue);
+                div.appendChild(span);
+
+                document.body.prepend(div);
+
+
+                //Style
+                div.style=`
+                background-color: #eee;
+                width: 350px;
+                height: 60px;
+                margin: 100px auto;
+                padding: 20px 0;
+                border: 1px solid #ddd;
+                font-family: sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                `;
+
+                h3.style.margin=0;
+                span.style=`
+                position: absolute;
+                top:-5px;
+                right: -5px;
+                background-color: red;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                text-align:center;
+                line-height: 20px;
+                color: white;
+                font-size:10px;
+                cursor:pointer;
+                `;     
+
+                span.onclick=function(){
+                    span.parentElement.remove();
+
+                    let done=document.createElement("div");
+                    let doneValue=document.createTextNode("Done");
+                    done.appendChild(doneValue);
+                    done.style.color="blue";
+                    document.body.prepend(done);
+                }
+
+            }
+        
+        </script>
+    </body>
+</html>

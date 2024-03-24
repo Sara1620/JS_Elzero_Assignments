@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+    </head>
+
+    <body>
+
+        <script>
+
+            let answer=prompt("Print Number From – To","Example: 5-20").split("-");
+
+            let start=+answer[0];
+            let end=+answer[1];
+
+            if(!isNaN(start) && !isNaN(end)){
+                if(start>end){
+                    let swap=start;
+                    start=end;
+                    end=swap;
+                }   
+
+                for(;start<=end;start++)
+                    console.log(start);
+            }
+    
+        </script>
+
+    </body>
+    
+</html>

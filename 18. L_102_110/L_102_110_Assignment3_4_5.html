@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>10</div>
+
+    <script>
+
+        let counter=+(document.querySelector("div").innerText);
+
+        window.setInterval( function(){
+            if(counter>=0){
+                document.querySelector("div").innerText=counter;
+                counter--;
+                if(counter==5)
+                    window.open("http://elzero.org","","width=500,height=500, top=100, left= 200"); 
+                if(counter==0)
+                    location.href="http://elzero.org";
+            }
+        },500);
+        
+    </script>
+</body>
+
+</html>
