@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Open+Sans:wght@400;700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <label>Fonts</label>
+        <select id="fonts">
+            <option value="Open Sans">Open</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Roboto">Roboto</option>
+        </select>
+
+        <label>Colors</label>
+        <select id="colors">
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="pink">Pink</option>
+            <option value="black">Black</option>
+        </select>
+
+        <label>Sizes</label>
+        
+        <script>
+
+            let select=document.createElement("select");
+            select.id="sizes";
+            let temp=document.querySelectorAll("label")[2];
+            temp.after(select);
+
+            for(let i=16;i<=30;i++){
+                let option=document.createElement("option");
+                option.value=i+"px";
+                option.text=i;
+                select.appendChild(option);
+            }
+
+            let el=document.querySelectorAll("select");
+            for(let i=0;i<el.length;i++){
+                el[i].firstElementChild.setAttribute("selected","");
+            }
+
+            //-------------------------------------------
+            //when the page is loaded, get the data if it exists
+            if(window.localStorage.getItem("font")){
+                let el=document.querySelectorAll("#fonts option");
+                el.forEach((e)=>{e.removeAttribute("selected");})
+                document.body.style.fontFamily=window.localStorage.getItem("font");
+                document.querySelector(`[value="${window.localStorage.getItem("font")}"]`).setAttribute("selected","");
+            }
+
+            if(window.localStorage.getItem("color")){
+                let el=document.querySelectorAll("#colors option");
+                el.forEach((e)=>{e.removeAttribute("selected");})
+                document.body.style.color=window.localStorage.getItem("color");       
+                document.querySelector(`[value="${window.localStorage.getItem("color")}"]`).setAttribute("selected","");
+            }
+            
+            if(window.localStorage.getItem("sizes")){
+                let el=document.querySelectorAll("#sizes option");
+                el.forEach((e)=>{e.removeAttribute("selected");})
+                document.body.style.fontSize=window.localStorage.getItem("sizes");
+                document.querySelector(`[value="${window.localStorage.getItem("sizes")}"]`).setAttribute("selected","");
+            }
+            
+            let fonts = document.getElementById("fonts");
+            let colors = document.getElementById("colors");
+            let sizes = document.getElementById("sizes");
+
+            fonts.onchange=function(){
+                let el=document.querySelectorAll("#fonts option");
+                el.forEach((e)=>{e.removeAttribute("selected");})
+                window.localStorage.setItem("font",fonts.value);
+                document.querySelector(`[value="${fonts.value}"]`).setAttribute("selected","");
+                document.body.style.fontFamily=fonts.value;
+            }
+
+            colors.onchange=function(){
+                let el=document.querySelectorAll("#colors option");
+                el.forEach((e)=>{e.removeAttribute("selected");})
+                window.localStorage.setItem("color",colors.value);
+                document.querySelector(`[value="${colors.value}"]`).setAttribute("selected","");
+                document.body.style.color=colors.value;
+            }
+            
+            sizes.onchange=function(){
+                let el=document.querySelectorAll("#sizes option");
+                el.forEach((e)=>{e.removeAttribute("selected");})
+                window.localStorage.setItem("sizes",sizes.value);
+                document.querySelector(`[value="${sizes.value}"]`).setAttribute("selected","");
+                document.body.style.fontSize=sizes.value;
+            }
+
+        </script>
+    </body>
+</html>

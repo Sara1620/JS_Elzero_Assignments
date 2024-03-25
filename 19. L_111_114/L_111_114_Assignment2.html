@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input:not(#input3){
+            width: 200px;
+            padding: 6px;
+        }
+        #input3,
+        select{
+            width: 215px;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form>
+        <label for="input1">Label 1</label>
+        <input id="input1" type="text">
+        
+        <label for="input2">Label 2</label>
+        <input id="input2" type="email">
+
+        <label for="input3">Label 3</label>
+        <input id="input3" type="color">
+
+        <label>Select an option</label>
+        <select id="select1"> 
+            <option>option 1</option>
+            <option>option 2</option>
+            <option>option 3</option>
+            <option>option 4</option>
+            <option>option 5</option>
+        </select>
+    </form>
+    
+    <script>
+        let inputs=document.querySelectorAll("input");
+        let select=document.getElementById("select1");
+
+        //if the values are saved in the session storage
+        //inputs
+        inputs.forEach(function(el,index){
+            if(sessionStorage.getItem(`input[${index}]`))
+                inputs[index].value=sessionStorage.getItem(`input[${index}]`);
+        })
+        //select
+        if(sessionStorage.getItem("select"))
+            select.value=sessionStorage.getItem("select");
+
+
+        //Save values in the session storage
+        //inputs
+        inputs.forEach(function(el,index){
+            el.onchange=function(){
+                sessionStorage.setItem(`input[${index}]`,el.value);
+            }
+        })
+        //select
+        select.onchange=function(){
+            sessionStorage.setItem(`select`,select.value);
+        }
+    </script>
+</body>
+</html>
